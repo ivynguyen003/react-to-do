@@ -4,7 +4,11 @@ import React, { Component } from 'react';
 class ToDo extends Component { //is component a reset name in react?
   render(){
   	return (
-  		<li>1st to do item</li>
+  		<li>
+  			<input type="checkbox" checked={ this.props.isCompleted } />
+  			<span>{ this.props.description }</span>
+  		</li>
+
   	);
   }
 }

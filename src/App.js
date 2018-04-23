@@ -20,7 +20,7 @@ class App extends Component {
       <div className="App">
         <ul>
           {this.state.todos.map((todo,index) => //evaluate the code as JS
-            <ToDo key={ index } />//assign the unique key to each child of the todos array
+            <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } />
           )}
         </ul>
       </div>
