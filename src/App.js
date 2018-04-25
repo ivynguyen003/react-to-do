@@ -15,12 +15,16 @@ class App extends Component {
     };
   }
 
+  toggleComplete(index) {
+    console.log(index);
+  }
+
   render() {
     return (
       <div className="App">
         <ul>
           {this.state.todos.map((todo,index) => //evaluate the code as JS
-            <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } />
+            <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) }/>
           )}
         </ul>
       </div>
