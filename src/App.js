@@ -28,10 +28,10 @@ class App extends Component {
   }
 
   deleteTodo(removeIndex){
-
-    this.setState((state) => ({...this.state.todos, 
-      todos:this.state.todos.filter((todo,index) => index !== removeIndex)
-    }));
+    const todos = this.state.todos.filter((todo,index) => {
+      return removeIndex !== index;
+    })
+    this.setState({ todos })
   }
 
   toggleComplete(index) {
@@ -42,6 +42,7 @@ class App extends Component {
   }
 
   render() {
+    var localThis = this;
     return (
       <div className="App">
         <ul>
