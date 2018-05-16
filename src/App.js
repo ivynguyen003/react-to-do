@@ -18,31 +18,32 @@ class App extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if(!this.state.newTodoDescription) { return }
+    if(!this.state.newTodoDescription) { return; }
     const newTodo = { description: this.state.newTodoDescription, isCompleted: false };
-    this.setState({ todos: [...this.state.todos, newTodo], newTodoDescription: ''});
+    this.setState({ todos: [...this.state.todos, newTodo], newTodoDescription: ''})
   }
 
   handleChange(e) {
-    this.setState({ newTodoDescription: e.target.value });
+    this.setState({ newTodoDescription: e.target.value })
   }
 
   deleteTodo(removeIndex){
     const todos = this.state.todos.filter((todo,index) => {
       return removeIndex !== index;
-    })
-    this.setState({ todos })
+    });
+    this.setState({ todos });
   }
 
   toggleComplete(index) {
     const todos = this.state.todos.slice();//make a copy of the array
-    const todo = todos[index]; // assign unique indext to each todo item 
+    const todo = todos[index]; // assign unique index to each todo item 
     todo.isCompleted = todo.isCompleted ? false : true;// switch the checkbox
     this.setState({ todos: todos });//Pass new state object 1st todos is a name, 2nd todos is the value,
   }
 
+
+
   render() {
-    var localThis = this;
     return (
       <div className="App">
         <ul>
